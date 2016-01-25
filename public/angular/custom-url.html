@@ -1,0 +1,4 @@
+<input ng-show="!newCustomShortedURL" class="form-control" style="width: 40%" placeholder="Enter Your Customize URL "
+       ng-model="customizeURL" ng-blur="createCustomURL()" ng-click="errorCustom=false">
+<span style="color: red" ng-if="errorCustom">Your shorted url is already used</span>
+<span ng-if="newCustomShortedURL">Your shorted URL is <a href="http:localhost:3000/{{newCustomShortedURL}}" target="_blank">http:localhost:3000/{{newCustomShortedURL}}</a></span>

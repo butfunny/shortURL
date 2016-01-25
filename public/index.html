@@ -10,10 +10,20 @@
 
 <div class="container">
     <h1>Short URL</h1>
-        <div class="form-group" ng-class="checkValidUrl() ? '' : 'has-error'">
-            <label class="control-label" ng-if="!checkValidUrl()">URL invalid</label>
-            <input class="form-control" ng-model="url" placeholder="http:// or https://" ng-blur="checkToServer()">
-        </div>
+    <div class="form-group" ng-class="checkValidUrl() ? '' : 'has-error'">
+        <label class="control-label" ng-if="!checkValidUrl()">URL invalid</label>
+        <input class="form-control" ng-click="reloadURL()" ng-model="url" placeholder="http:// or https://" ng-blur="checkToServer()">
+    </div>
+    <span ng-if="loading">Processing...<i class="fa fa-spinner fa-pulse"></i></span>
+    <span ng-if="alreadyURL">This URL is shorted. Here is the URL: <a href="http://localhost:3000/{{alreadyURL.shortURL}}">http://localhost:3000/{{alreadyURL.shortURL}}</a></span>
+
+    <div ng-if="openFormCreateURL">
+        <button class="btn btn-primary" ng-click="createShortURL()">Create Short URL</button>
+        <button class="btn btn-primary" ng-click="openFormCustom()">Custom Your URL</button>
+    </div>
+    <custom-url ng-if="customUrl"></custom-url>
+    <span ng-if="newShortedURL">Your shorted URL is <a href="http:localhost:3000/{{newShortedURL}}" target="_blank">http:localhost:3000/{{newShortedURL}}</a></span>
+
 </div>
 
 <script src="js/angular.js"></script>
