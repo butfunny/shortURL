@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shortURL.app">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <title></title>
+</head>
+<body ng-controller="shortUrl.controller">
+
+<div class="container">
+    <h1>Short URL</h1>
+        <div class="form-group" ng-class="checkValidUrl() ? '' : 'has-error'">
+            <label class="control-label" ng-if="!checkValidUrl()">URL invalid</label>
+            <input class="form-control" ng-model="url" placeholder="http:// or https://" ng-blur="checkToServer()">
+        </div>
+</div>
+
+<script src="js/angular.js"></script>
+<script src="angular/app.js"></script>
+
+</body>
+</html>
